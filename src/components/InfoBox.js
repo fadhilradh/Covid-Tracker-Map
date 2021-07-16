@@ -1,9 +1,11 @@
 import { Card, CardContent, Typography } from "@material-ui/core";
+import numeral from "numeral";
+import "../styles/InfoBox.css";
 
 const InfoBox = ({ title, dailyCase, totalCase }) => {
     return (
         <Card className="infoBox">
-            <CardContent>
+            <CardContent className="infoBox__content">
                 <Typography color="textSecondary" className="infoBox__title">
                     {title}
                 </Typography>
@@ -13,14 +15,14 @@ const InfoBox = ({ title, dailyCase, totalCase }) => {
                     color="textSecondary"
                     className="infoBox__dailyCase"
                 >
-                    {dailyCase}
+                    {numeral(dailyCase).format("0.a")}
                 </Typography>
 
                 <Typography
                     color="textSecondary"
                     className="infoBox__totalCase"
                 >
-                    Total {totalCase}{" "}
+                    Total Cases : {numeral(totalCase).format("0.a")}
                 </Typography>
             </CardContent>
         </Card>
